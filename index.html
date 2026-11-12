@@ -31,18 +31,19 @@ a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 nav{display:flex;gap:24px;padding:20px 0;flex-wrap:wrap;border-bottom:1px solid var(--line)}
 nav a{color:var(--muted);text-decoration:none;font-weight:600}
 nav a:hover{color:var(--accent)}
-.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding:64px 0 56px}
+.hero{padding:64px 0 48px}
 .hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:700}
-.hero p{color:var(--muted);max-width:34ch;margin:16px 0 24px}
+.hero p{color:var(--muted);max-width:54ch;margin:16px 0 24px}
 .btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-block;padding:10px 18px;border-radius:6px;font-weight:600;text-decoration:none;
   background:var(--accent);color:var(--bg)}
 .btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.topo{width:100%;height:auto}
-.topo line{stroke:var(--muted);stroke-width:2}
-.topo .node{fill:var(--surface);stroke:var(--ink);stroke-width:2}
-.topo .a{fill:var(--vlan-a)} .topo .b{fill:var(--vlan-b)}
-.topo text{fill:var(--ink);font:600 12px "Source Sans 3",sans-serif;text-anchor:middle}
+.tools{list-style:none;display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:32px 0 0}
+.tools li{display:flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line);
+  border-radius:6px;background:var(--surface);font-weight:600;font-size:.95rem}
+.tools img{height:22px;width:auto}
+.tag{display:inline-block;margin:0 6px 6px 0;padding:2px 10px;border:1px solid var(--line);
+  border-radius:4px;font-size:.85rem;color:var(--muted)}
 section{padding:48px 0;border-top:1px solid var(--line)}
 section h2{font-size:1.6rem;margin-bottom:8px}
 .lead{color:var(--muted);margin:0 0 28px;max-width:60ch}
@@ -55,7 +56,7 @@ section h2{font-size:1.6rem;margin-bottom:8px}
 .skills h3{font-size:1rem;margin-bottom:6px}
 .skills p{margin:0;color:var(--muted)}
 footer{padding:40px 0 64px;border-top:1px solid var(--line);color:var(--muted)}
-@media (max-width:760px){.hero{grid-template-columns:1fr;padding-top:40px}}
+@media (max-width:760px){.hero{padding-top:40px}}
 </style>
 </head>
 <body>
@@ -69,50 +70,56 @@ footer{padding:40px 0 64px;border-top:1px solid var(--line);color:var(--muted)}
 </nav>
 
 <header class="hero">
-  <div>
-    <h1>Arianna Bermudez Rivera</h1>
-    <p>Systems administrator with hands-on experience in Microsoft 365, identity, endpoint security, and compliance. I build labs to learn what I haven't yet run in production.</p>
-    <div class="btns">
-      <a class="btn" href="resume.pdf">Download resume</a>
-      <a class="btn alt" href="#labs">See my labs</a>
-    </div>
+  <h1>Arianna Bermudez Rivera</h1>
+  <p>Systems administrator with hands-on experience in Microsoft 365, identity, endpoint security, and compliance. I investigate threats, automate migrations, and document what I learn.</p>
+  <div class="btns">
+    <a class="btn" href="resume.pdf">Download resume</a>
+    <a class="btn alt" href="#labs">See my work</a>
   </div>
-  <!-- Diagram of the VLAN lab: two switches, one router, four PCs -->
-  <svg class="topo" viewBox="0 0 560 230" role="img" aria-label="Network diagram: a router connected to two switches, each with two PCs on VLAN 10 and VLAN 20">
-    <line x1="280" y1="40" x2="130" y2="115"/><line x1="280" y1="40" x2="430" y2="115"/>
-    <line x1="130" y1="115" x2="70" y2="185"/><line x1="130" y1="115" x2="190" y2="185"/>
-    <line x1="430" y1="115" x2="370" y2="185"/><line x1="430" y1="115" x2="490" y2="185"/>
-    <rect class="node" x="240" y="16" width="80" height="48" rx="8"/><text x="280" y="45">Router</text>
-    <rect class="node" x="90" y="92" width="80" height="46" rx="8"/><text x="130" y="120">Switch 1</text>
-    <rect class="node" x="390" y="92" width="80" height="46" rx="8"/><text x="430" y="120">Switch 2</text>
-    <circle class="a" cx="70" cy="185" r="16"/><circle class="b" cx="190" cy="185" r="16"/>
-    <circle class="a" cx="370" cy="185" r="16"/><circle class="b" cx="490" cy="185" r="16"/>
-    <text x="70" y="220">VLAN 10</text><text x="190" y="220">VLAN 20</text>
-    <text x="370" y="220">VLAN 10</text><text x="490" y="220">VLAN 20</text>
-  </svg>
+  <!-- Logos: download each from the vendor's brand page into images/logos/ and match the filenames.
+       If a file is missing, the logo hides and the tool name still shows. -->
+  <ul class="tools" aria-label="Tools I use">
+    <li><img src="images/logos/azure.svg" alt="" onerror="this.remove()">Azure</li>
+    <li><img src="images/logos/entra.svg" alt="" onerror="this.remove()">Entra ID</li>
+    <li><img src="images/logos/defender.svg" alt="" onerror="this.remove()">Microsoft Defender</li>
+    <li><img src="images/logos/m365.svg" alt="" onerror="this.remove()">Microsoft 365</li>
+    <li><img src="images/logos/ninjaone.svg" alt="" onerror="this.remove()">NinjaOne</li>
+    <li><img src="images/logos/threatlocker.svg" alt="" onerror="this.remove()">ThreatLocker</li>
+    <li><img src="images/logos/rapid7.svg" alt="" onerror="this.remove()">Rapid7</li>
+  </ul>
 </header>
 
 <section id="labs">
-  <h2>Labs</h2>
-  <p class="lead">Hands-on practice in Cisco Packet Tracer and other home lab tools. Each write-up covers what I built, the commands I used, and what I learned.</p>
+  <h2>Labs &amp; Case Studies</h2>
+  <p class="lead">Security workflows I run and refine. Examples are sanitized: no real users, domains, or internal systems.</p>
 
   <article class="entry">
-    <h3>VLAN segmentation and trunking</h3>
-    <p class="meta">Cisco Packet Tracer | [Month Year]</p>
-    <p>Built a network with two switches, one router, and four PCs split across VLAN 10 and VLAN 20. Configured access ports, an 802.1Q trunk, and verified that traffic stayed isolated between VLANs.</p>
+    <h3>Phishing email investigation</h3>
+    <p class="meta">Daily workflow | Sanitized example</p>
+    <span class="tag">Defender Advanced Hunting</span><span class="tag">urlscan.io</span><span class="tag">MXToolbox Header Analyzer</span>
+    <p>I investigate suspicious emails reported by users, working from the message header to the full scope of exposure.</p>
     <ul>
-      <li>Created VLANs and assigned access ports with <code>switchport access vlan</code></li>
-      <li>Configured trunk links to carry multiple VLANs to the router</li>
-      <li>Troubleshot a trunk that wasn't showing in <code>show interfaces trunk</code></li>
+      <li>Analyze headers to trace the sending path and check SPF, DKIM, and DMARC results</li>
+      <li>Inspect links and landing pages safely with urlscan.io</li>
+      <li>Query Defender Advanced Hunting to find other recipients and related activity</li>
+      <li>Recommend or carry out remediation, such as removing the message or blocking the sender</li>
     </ul>
-    <!-- To add a screenshot: upload it to your repo, then uncomment and edit this line:
-    <img src="images/vlan-lab.png" alt="Packet Tracer topology for the VLAN lab"> -->
+    <!-- Add: a defanged sample, a short example query, and a screenshot from a PUBLIC phishing sample -->
+    <p class="meta">[Add: one example investigation, start to finish, and what it taught you]</p>
   </article>
 
   <article class="entry">
-    <h3>[Next lab: EtherChannel, inter-VLAN routing, or a VMware home lab]</h3>
-    <p class="meta">[Tool] | [Month Year]</p>
-    <p>[Two sentences on what you built and why.]</p>
+    <h3>Legacy remote management tool cleanup</h3>
+    <p class="meta">Security hygiene case study | [Month Year]</p>
+    <span class="tag">Rapid7</span><span class="tag">PowerShell</span><span class="tag">NinjaOne</span>
+    <p>Outdated remote management tools are a known attack path. I found them across the network, removed them, and confirmed they were gone.</p>
+    <ul>
+      <li>Detected unauthorized and obsolete tools using vulnerability scan data and device inventory</li>
+      <li>Scripted the removal and standardized on one approved toolset</li>
+      <li>Verified remediation with a follow-up scan</li>
+    </ul>
+    <!-- Add: a generic version of your script in a GitHub repo, with no company names or credentials -->
+    <p class="meta">[Add: number of devices affected and the result, if you can share it]</p>
   </article>
 </section>
 
@@ -161,7 +168,7 @@ footer{padding:40px 0 64px;border-top:1px solid var(--line);color:var(--muted)}
 
 </div>
 <footer>
-  <div class="wrap">&copy; 2026 [Your Name]</div>
+  <div class="wrap">&copy; 2026 [Your Name]. Product names and logos belong to their respective owners.</div>
 </footer>
 </body>
 </html>
